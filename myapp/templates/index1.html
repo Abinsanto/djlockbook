@@ -1,0 +1,278 @@
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    {% load static %}-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <title>Document</title>-->
+<!--    <link rel="stylesheet" href="{% static 'style1.css' %}">-->
+<!--    <link rel="preconnect" href="https://fonts.googleapis.com">-->
+<!--    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>-->
+<!--    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">-->
+
+<!--&lt;!&ndash;    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">&ndash;&gt;-->
+<!--&lt;!&ndash;<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>&ndash;&gt;-->
+<!--&lt;!&ndash;  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>&ndash;&gt;-->
+<!--&lt;!&ndash;<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>&ndash;&gt;-->
+
+<!--</head>-->
+<!--<body>-->
+<!--    <div class="navbar">-->
+<!--        <h1>Booksky</h1>-->
+<!--    </div>-->
+<!--    <div class="container">-->
+<!--        <div class="book-container">-->
+<!--            <h2>Rich Dad Poor Dad</h2>-->
+<!--            <h5>Robert Kiyosaki</h5>-->
+<!--            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla nostrum nisi accusamus eum. Assumenda consectetur sit neque repellendus sint ut praesentium repellat, nihil perspiciatis temporibus officia id fugit provident a?</p>-->
+<!--            <br>-->
+<!--            <button onclick="deletebook(event)">delete</button>-->
+<!--        </div>-->
+<!--    </div>-->
+
+<!--    <div class="popup-overlay"></div>-->
+<!--    <div class="popup-box">-->
+<!--        <h2>Add Book</h2>-->
+<!--        <form>-->
+
+<!--            <input type="text" placeholder="Book Title" id="book-title-input">-->
+<!--            <input type="text" placeholder="Book Author" id="book-author-input">-->
+
+<!--            <textarea placeholder="Short Description" id="book-description-input"></textarea>-->
+
+<!--               {% csrf_token %}-->
+<!--               {{ form.as_p }}-->
+<!--            <button type="submit" id="add-book">Add</button>-->
+<!--            <button id="cancel-popup">Cancel</button>-->
+<!--        </form>-->
+<!--    </div>-->
+
+<!--    <button class="add-button" id="add-popup-button">+</button>-->
+
+<!--    <script>-->
+<!--       var popupoverly = document.querySelector(".popup-overlay");-->
+<!--var popupbox = document.querySelector(".popup-box");-->
+<!--var addpopupbutton = document.getElementById("add-popup-button");-->
+
+<!--addpopupbutton.addEventListener("click", function() {-->
+<!--    popupoverly.style.display = "block";-->
+<!--    popupbox.style.display = "block";-->
+<!--});-->
+
+
+<!--var cancelpopup = document.getElementById("cancel-popup");-->
+<!--cancelpopup.addEventListener("click", function(event) {-->
+<!--    event.preventDefault();-->
+<!--    popupoverly.style.display = "none";-->
+<!--    popupbox.style.display = "none";-->
+<!--    booktitelinput.value = '';-->
+<!--    bookauthorinput.value = '';-->
+<!--    bookdescriptioninput.value = '';-->
+<!--});-->
+
+<!--var container = document.querySelector(".container");-->
+<!--var addbook = document.getElementById("add-book");-->
+<!--var booktitelinput = document.getElementById("book-title-input");-->
+<!--var bookauthorinput = document.getElementById("book-author-input");-->
+<!--var bookdescriptioninput = document.getElementById("book-description-input");-->
+
+<!--addbook.addEventListener("click", function(event) {-->
+<!--    event.preventDefault();-->
+<!--    if (booktitelinput.value == '') {-->
+<!--        alert("The title is required.");-->
+<!--    } else {-->
+<!--        var div = document.createElement("div");-->
+<!--        div.setAttribute("class", "book-container");-->
+<!--        div.innerHTML = `-->
+<!--            <h2>${booktitelinput.value}</h2>-->
+<!--            <h5>${bookauthorinput.value}</h5>-->
+<!--            <p>${bookdescriptioninput.value}</p>-->
+<!--            <br>-->
+<!--            <button onclick="deletebook(event)">delete</button>-->
+<!--        `;-->
+<!--        container.append(div);-->
+<!--        popupoverly.style.display = "none";-->
+<!--        popupbox.style.display = "none";-->
+<!--        booktitelinput.value = '';-->
+<!--        bookauthorinput.value = '';-->
+<!--        bookdescriptioninput.value = '';-->
+<!--    }-->
+<!--});-->
+
+<!--function deletebook(event) {-->
+<!--    event.target.parentElement.remove();-->
+<!--}-->
+<!--    </script>-->
+<!--</body>-->
+<!--</html>-->
+
+
+
+
+
+
+
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    {% load static %}-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <title>Booksky</title>-->
+<!--    <link rel="stylesheet" href="{% static 'style1.css' %}">-->
+<!--    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">-->
+<!--</head>-->
+<!--<body>-->
+<!--    <div class="navbar">-->
+<!--        <h1>Booksky</h1>-->
+<!--        <div>-->
+<!--            <span>Welcome, {{ user.username }}</span>-->
+<!--            <a href="{% url 'logout_user' %}">-->
+<!--                <button type="button">Logout</button>-->
+<!--            </a>-->
+<!--        </div>-->
+<!--    </div>-->
+
+<!--    <div class="container">-->
+<!--        {% if books %}-->
+<!--            {% for book in books %}-->
+<!--                <div class="book-container">-->
+<!--                    <h2>{{ book.title }}</h2>-->
+<!--                    <h5>{{ book.author }}</h5>-->
+<!--                    <p>{{ book.short }}</p>-->
+<!--                    <form action="{% url 'delete_book' book.id %}" method="post">-->
+<!--                        {% csrf_token %}-->
+<!--                        <button type="submit">Delete</button>-->
+<!--                    </form>-->
+<!--                </div>-->
+<!--            {% endfor %}-->
+<!--        {% else %}-->
+<!--            <p>No books added yet.</p>-->
+<!--        {% endif %}-->
+<!--    </div>-->
+
+<!--    &lt;!&ndash; Popup Overlay &ndash;&gt;-->
+<!--    <div class="popup-overlay" style="display: none;"></div>-->
+
+<!--    &lt;!&ndash; Popup Box &ndash;&gt;-->
+<!--    <div class="popup-box" style="display: none;">-->
+<!--        <h2>Add Book</h2>-->
+<!--        <form method="POST">-->
+<!--            {% csrf_token %}-->
+<!--            {{ form.as_p }}-->
+<!--            <div class="popup-buttons">-->
+<!--                <button type="submit" id="add-book">Add</button>-->
+<!--                <button id="cancel-popup">Cancel</button>-->
+<!--            </div>-->
+<!--        </form>-->
+<!--    </div>-->
+
+<!--    &lt;!&ndash; Add Button &ndash;&gt;-->
+<!--    <button class="add-button" id="add-popup-button">+</button>-->
+
+<!--    <script>-->
+<!--        const popupOverlay = document.querySelector(".popup-overlay");-->
+<!--        const popupBox = document.querySelector(".popup-box");-->
+<!--        const addPopupButton = document.getElementById("add-popup-button");-->
+<!--        const cancelPopup = document.getElementById("cancel-popup");-->
+
+<!--        addPopupButton.addEventListener("click", function() {-->
+<!--            popupOverlay.style.display = "block";-->
+<!--            popupBox.style.display = "block";-->
+<!--        });-->
+
+<!--        cancelPopup.addEventListener("click", function(event) {-->
+<!--            event.preventDefault(); // Prevent form submission-->
+<!--            popupOverlay.style.display = "none";-->
+<!--            popupBox.style.display = "none";-->
+<!--        });-->
+<!--    </script>-->
+<!--</body>-->
+<!--</html>-->
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booksky</title>
+    <link rel="stylesheet" href="{% static 'style1.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div class="navbar">
+        <h1>Booksky</h1>
+        <div>
+            <span>Welcome, {{ user.username }}</span>
+            <a href="{% url 'logout_user' %}">
+                <button type="button">Logout</button>
+            </a>
+        </div>
+    </div>
+
+    <div class="container">
+        {% if books %}
+            {% for book in books %}
+                <div class="book-container">
+                    <h2>{{ book.title }}</h2>
+                    <h5>{{ book.author }}</h5>
+                    <p>{{ book.short }}</p>
+                    <form action="{% url 'delete_book' book.id %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit">Delete</button>
+                    </form>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No books added yet.</p>
+        {% endif %}
+    </div>
+
+    <!-- Popup Overlay -->
+    <div class="popup-overlay" style="display: none;"></div>
+
+    <!-- Popup Box -->
+    <div class="popup-box" style="display: none;">
+        <h2>Add Book</h2>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div style="margin-top: 1rem;">
+                <button type="submit">Add</button>
+                <button id="cancel-popup">Cancel</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Add Button -->
+    <button class="add-button" id="add-popup-button">+</button>
+
+    <script>
+        const popupOverlay = document.querySelector(".popup-overlay");
+        const popupBox = document.querySelector(".popup-box");
+        const addPopupButton = document.getElementById("add-popup-button");
+        const cancelPopup = document.getElementById("cancel-popup");
+
+        addPopupButton.addEventListener("click", () => {
+            popupOverlay.style.display = "block";
+            popupBox.style.display = "block";
+        });
+
+        cancelPopup.addEventListener("click", (event) => {
+            event.preventDefault(); // Prevent form submission
+            popupOverlay.style.display = "none";
+            popupBox.style.display = "none";
+        });
+    </script>
+</body>
+</html>
+
+
