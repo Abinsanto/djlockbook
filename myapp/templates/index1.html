@@ -205,15 +205,20 @@
     <title>Booksky</title>
     <link rel="stylesheet" href="{% static 'style1.css' %}">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="{% static 'ico.png' %}">
 
 </head>
 <body>
-    <div class="navbar">
+    <div class="navbar" style="background-color: #fd6568;">
         <h1>Booksky</h1>
         <div>
             <span>Welcome, {{ user.username }}</span>
             <a href="{% url 'logout_user' %}">
-                <button type="button">Logout</button>
+                <button type="button" style="   background-color: white;
+    color: black;
+    border-radius: 15px;
+    border: none;
+    padding: 5px 10px;">Logout </button>
             </a>
         </div>
     </div>
@@ -247,7 +252,7 @@
             {{ form.as_p }}
             <div style="margin-top: 1rem;">
                 <button type="submit">Add</button>
-                <button id="cancel-popup">Cancel</button>
+                <button id="cancel-popup" type="button" onclick="window.location.href='{% url "home" %}'" >Cancel</button>
             </div>
         </form>
     </div>
@@ -267,11 +272,13 @@
         });
 
         cancelPopup.addEventListener("click", (event) => {
-            event.preventDefault(); // Prevent form submission
+            event.preventDefault();
             popupOverlay.style.display = "none";
             popupBox.style.display = "none";
         });
     </script>
+
+
 </body>
 </html>
 

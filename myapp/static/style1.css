@@ -5,12 +5,13 @@
 body {
     font-family: 'Poppins', sans-serif;
 }
-.navbar {
 
+.navbar {
 
     padding: 10px;
     text-align: center;
 }
+
 .container {
     padding: 15px;
     display: flex;
