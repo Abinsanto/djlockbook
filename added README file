@@ -1,0 +1,10 @@
+README.md
+# djlockbook
+
+A Django-based login and signup authentication system built using Bootstrap 5.
+
+## Features
+- User registration and login
+- Authentication with CSRF protection
+- Responsive mobile design
+- Admin dashboard
